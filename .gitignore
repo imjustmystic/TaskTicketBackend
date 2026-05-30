@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+.env
+*.h2.db
+*.mv.db
