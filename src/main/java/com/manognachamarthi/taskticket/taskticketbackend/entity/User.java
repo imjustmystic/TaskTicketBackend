@@ -1,9 +1,11 @@
 package com.manognachamarthi.taskticket.taskticketbackend.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,4 +20,6 @@ public class User {
     private Long id;
     private String username;
     private String email;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
+    private java.util.List<Task> tasks;
 }

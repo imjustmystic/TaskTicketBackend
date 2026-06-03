@@ -1,5 +1,7 @@
 package com.manognachamarthi.taskticket.taskticketbackend.entity;
 
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,4 +21,6 @@ public class Task {
     private String title;
     private String description;
     private String status;
+    @ManyToAny 
+    private User user;
 }

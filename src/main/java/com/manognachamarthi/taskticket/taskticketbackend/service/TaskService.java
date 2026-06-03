@@ -23,4 +23,9 @@ public class TaskService {
     public Task createTask(Task task) {
         return taskRepository.save(task);
     }
+
+    public Task deleteTask(Task task) {
+        taskRepository.delete(task);
+        return task;
+    }
 }

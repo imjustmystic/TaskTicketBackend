@@ -2,6 +2,7 @@ package com.manognachamarthi.taskticket.taskticketbackend.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,5 +28,9 @@ public class TaskController {
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         return taskService.createTask(task);
+    }
+    @DeleteMapping
+    public Task deleteTask(@RequestBody Task task) {
+        return taskService.deleteTask(task);
     }
 }
