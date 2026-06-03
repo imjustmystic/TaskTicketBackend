@@ -13,12 +13,16 @@ public class SecurityConfig {
 
         http
             .csrf(csrf -> csrf
-                .ignoringRequestMatchers("/h2-console/**")
+                .disable()
             )
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/h2-console/**").permitAll()
+                .requestMatchers("/h2-console/**").permitAll()
+                .requestMatchers("/tasks/**").permitAll()
+            .requestMatchers("/users/**").permitAll()
                 .anyRequest().authenticated()
             )
+
             .headers(headers -> headers
                 .frameOptions(frame -> frame.sameOrigin())
             );
