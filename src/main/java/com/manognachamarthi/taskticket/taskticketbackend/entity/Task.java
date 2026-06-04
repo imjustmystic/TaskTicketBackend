@@ -1,6 +1,8 @@
 package com.manognachamarthi.taskticket.taskticketbackend.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +25,7 @@ public class Task {
     private String description;
     private String status;
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "user_id")
     private User user;
 }

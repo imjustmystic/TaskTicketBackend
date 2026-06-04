@@ -3,6 +3,8 @@ package com.manognachamarthi.taskticket.taskticketbackend.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,5 +26,6 @@ public class User {
     private String username;
     private String email;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Task> tasks = new ArrayList<>();
 }
