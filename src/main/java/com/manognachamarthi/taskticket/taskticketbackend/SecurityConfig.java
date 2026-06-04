@@ -19,8 +19,8 @@ public class SecurityConfig {
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/tasks/**").permitAll()
-            .requestMatchers("/users/**").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers("/users/**").permitAll()
+                .anyRequest().permitAll()
             )
 
             .headers(headers -> headers

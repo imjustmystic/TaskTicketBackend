@@ -7,7 +7,12 @@ import org.springframework.stereotype.Service;
 import com.manognachamarthi.taskticket.taskticketbackend.entity.User;
 import com.manognachamarthi.taskticket.taskticketbackend.repository.UserRepository;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Service
+@Getter
+@Setter
 public class UserService {
     private final UserRepository userRepository;
 
@@ -23,8 +28,4 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User deleteUser(User user) {
-        userRepository.delete(user);
-        return user;
-    }
 }
