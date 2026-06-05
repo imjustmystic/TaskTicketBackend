@@ -2,8 +2,11 @@ package com.manognachamarthi.taskticket.taskticketbackend.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.manognachamarthi.taskticket.taskticketbackend.enums.TaskStatus;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,7 +26,10 @@ public class Task {
     private Long id;
     private String title;
     private String description;
-    private String status;
+    
+    @Enumerated(EnumType.STRING)
+    private TaskStatus status;
+
     @ManyToOne
     @JsonBackReference
     @JoinColumn(name = "user_id")
