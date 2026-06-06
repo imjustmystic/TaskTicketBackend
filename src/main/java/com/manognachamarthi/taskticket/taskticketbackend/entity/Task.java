@@ -1,7 +1,10 @@
 package com.manognachamarthi.taskticket.taskticketbackend.entity;
 
 
+import java.sql.Timestamp;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.manognachamarthi.taskticket.taskticketbackend.enums.PriorityStatus;
 import com.manognachamarthi.taskticket.taskticketbackend.enums.TaskStatus;
 
 import jakarta.persistence.Entity;
@@ -26,9 +29,14 @@ public class Task {
     private Long id;
     private String title;
     private String description;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
     
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
+
+    @Enumerated(EnumType.STRING)
+    private PriorityStatus priority;
 
     @ManyToOne
     @JsonBackReference
