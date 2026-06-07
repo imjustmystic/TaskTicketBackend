@@ -1,7 +1,7 @@
 package com.manognachamarthi.taskticket.taskticketbackend.entity;
 
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.manognachamarthi.taskticket.taskticketbackend.enums.PriorityStatus;
@@ -15,6 +15,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,8 +31,6 @@ public class Task {
     private Long id;
     private String title;
     private String description;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
     
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
@@ -38,8 +38,21 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private PriorityStatus priority;
 
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
     @ManyToOne
     @JsonBackReference
     @JoinColumn(name = "user_id")
     private User user;
+
+    @PrePersist
+    public void preCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }
