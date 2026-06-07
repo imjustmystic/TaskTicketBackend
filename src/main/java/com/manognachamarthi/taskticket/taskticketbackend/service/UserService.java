@@ -2,6 +2,7 @@ package com.manognachamarthi.taskticket.taskticketbackend.service;
 
 import java.util.List;
 
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.manognachamarthi.taskticket.taskticketbackend.entity.User;
@@ -24,8 +25,17 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User createUser(User user) {
+    public User getUserById(@NonNull Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+    }
+
+    public User createUser(@NonNull User user) {
         return userRepository.save(user);
+    }
+
+    public void deleteById(@NonNull Long id) {
+        userRepository.deleteById(id);
     }
 
 }
