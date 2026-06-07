@@ -28,31 +28,6 @@ TaskTicket is a simple but scalable task management backend that demonstrates:
 
 ---
 
-## Project Structure
-
-com.manognachamarthi.taskticket.taskticketbackend
-
-controller
-│   ├── UserController
-│   └── TaskController
-│
-service
-│   ├── UserService
-│   └── TaskService
-│
-repository
-│   ├── UserRepository
-│   └── TaskRepository
-│
-entity
-│   ├── User
-│   └── Task
-│
-config
-│   └── SecurityConfig
-
----
-
 ## Features Implemented
 
 ### User Management
@@ -117,6 +92,7 @@ User (1) ────────> (Many) Tasks
 ### Author
 
 Built by Manogna Raju Chamarthi
+
 Backend Developer in progress | Java | Spring Boot | System Design Learner
 
 If you like this project, consider giving it a ⭐ on GitHub
